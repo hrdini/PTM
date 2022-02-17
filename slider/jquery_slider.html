@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery Basic Slider</title>
+
+    <style>
+        body {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color : 	#fafafa;
+            background-color:thistle;
+        }
+        img {
+            width: 900px; 
+            height: 400px;
+        }
+        .header {
+            text-align: center;
+        }
+        .slider {
+            width: 900px; 
+            height: 400px;
+            margin: auto;
+            overflow: hidden;
+        }
+        .slides {
+            display: block;
+            width: 8000px;
+            height: 400px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .slide {
+            float: left;
+            width: 900px;
+            height: 400px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="header">
+        <h1>(っ◔◡◔)っ ♥ Some Aesthetic Pictures For U ♥</h1>
+    </div>
+    <div class="slider">
+        <ul class="slides">
+            <li class="slide"><img style="width: 900px; height: 500px;" src="img/estetik1.jpg" alt=""></li>
+            <li class="slide"><img style="width: 900px; height: 500px;" src="img/estetik2.jpg" alt=""></li>
+            <li class="slide"><img style="width: 900px; height: 500px;" src="img/estetik3.jpg" alt=""></li>
+            <li class="slide"><img style="width: 900px; height: 500px;" src="img/estetik4.jpg" alt=""></li>
+            <li class="slide"><img style="width: 900px; height: 500px;" src="img/estetik5.jpg" alt=""></li>
+        </ul>
+    </div>
+
+    <!--Javascript files here-->
+    <script src="jquery.js"></script>
+    <script>
+
+        var currentSlide = 1;
+        var $slider = $(".slides");
+        var slideCount = $slider.children().length;
+        var slideTime = 2000;
+        var animationTime = 800;
+
+        setInterval(function(){
+            $slider.animate({
+                marginLeft : '-=900px'
+            } , function() {
+                currentSlide++;
+                if(currentSlide === slideCount) {
+                    currentSlide = 1;
+                    $(this).css("margin-left", "0px");
+                }
+            });
+        } , slideTime);
+
+    </script>
+
+</body>
+</html>
